@@ -1,30 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDogs } from "../../redux/actions";
+import CardDog from "../Card/CardDog";
 
 export default function Home() {
-  const dogs = useSelector((state) => state.dogs);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllDogs());
-  }, [dispatch]);
+  
 
   return (
     <div>
       <h1>hola soy el llamado principal</h1>
-      {dogs &&
-        dogs.map((e) => {
-          return {
-            key: e.id,
-            id: e.id,
-            image: e.image,
-            name: e.name,
-            temperamento: e.temperament,
-            peso: e.weight_max,
-          };
-        })}
+      <CardDog />
     </div>
   );
 }
