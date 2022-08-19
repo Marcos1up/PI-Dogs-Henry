@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export const GET_ALL_DOGS = "GET_ALL_DOGS";
+export const GET_DOGS_BY_NAME = "GET_DOGS_BY_NAME";
+export const GET_DOGS_BY_ID = "GET_DOGS_BY_ID";
 
 export const getAllDogs = () => {
   return async (dispatch) => {
@@ -9,6 +11,32 @@ export const getAllDogs = () => {
     );
   };
 };
+
+export function getDogByName(name) {
+  return async function (dispatch) {
+    const dogsByName = await axios.get(
+      `http://localhost:3001/dogs?name=${name}`
+    );
+    dispatch({
+      type: GET_DOGS_BY_NAME,
+      payload: dogsByName.data,
+    });
+  };
+}
+
+export function getDogById(id) {
+  return async function (dispatch) {
+    try {
+      const dogsById = await axios.get(`http://localhost:3001/dogs/${id}`);
+      dispatch({
+        type: GET_DOGS_BY_ID,
+        payload: dogsById.data[0],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 /* 
 
