@@ -3,12 +3,16 @@ import React /* { useEffect } */ from "react";
 import CardDog from "../Card/CardDog";
 import Nav from "../NavBar/NavBar";
 import SearchBar from "../SearchBar/SearchBar";
+import SortByName from "../Sorts/SortByName";
 
 export default function Home() {
   return (
     <div>
       <Nav />
       <SearchBar />
+      <div>
+        <SortByName />
+      </div>
       <div>
         <h1>LLAMADO GENERAL DE PERROS</h1>
         <div>

@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_ALL_DOGS = "GET_ALL_DOGS";
 export const GET_DOGS_BY_NAME = "GET_DOGS_BY_NAME";
 export const GET_DOGS_BY_ID = "GET_DOGS_BY_ID";
+export const SORT_BY_NAME = "SORT_BY_NAME";
 
 export const getAllDogs = () => {
   return async (dispatch) => {
@@ -12,7 +13,8 @@ export const getAllDogs = () => {
   };
 };
 
-export function getDogByName(name) {    //para el searchBar
+export function getDogByName(name) {
+  //para el searchBar
   return async function (dispatch) {
     const dogsByName = await axios.get(
       `http://localhost:3001/dogs?name=${name}`
@@ -33,10 +35,17 @@ export function getDogById(id) {
         payload: res.data,
       });
     } catch (error) {
-      alert("Dog not found")
+      alert("Dog not found");
     }
   };
 }
+
+export const sortByName = (payload) => {
+  return {
+    type: SORT_BY_NAME,
+    payload,
+  };
+};
 
 /* 
 

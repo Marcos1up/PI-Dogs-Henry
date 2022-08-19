@@ -12,10 +12,6 @@ export default function Nav() {
       <Link to="/createDog">
         <div>Create Dog</div>
       </Link>
-      <Link to="/about">
-        <div>About</div>
-      </Link>
-      {/* <Searchbar /> */}
     </div>
   );
 }
