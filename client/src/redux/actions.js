@@ -4,6 +4,7 @@ export const GET_ALL_DOGS = "GET_ALL_DOGS";
 export const GET_DOGS_BY_NAME = "GET_DOGS_BY_NAME";
 export const GET_DOGS_BY_ID = "GET_DOGS_BY_ID";
 export const SORT_BY_NAME = "SORT_BY_NAME";
+export const RELOAD = "RELOAD"
 
 export const getAllDogs = () => {
   return async (dispatch) => {
@@ -37,6 +38,11 @@ export function getDogById(id) {
     } catch (error) {
       alert("Dog not found");
     }
+  };
+}
+export function resetDogs() {
+  return {
+    type: RELOAD,
   };
 }
 

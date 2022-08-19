@@ -22,15 +22,15 @@ export default function DogDetail(props) {
         {dogId ? (
           <div>
             <div>
-              <img src={dogId.image} width={400} alt={dog404} />
+              <img src={dogId.image} alt={dog404} width={400} />
             </div>
             <div>
               <h4>Name: "{dogId.name}"</h4>
               <p>
-                Weight: {dogId.weight_min} min ~ {dogId.weight_max} max Kg.
+                Weight: {dogId.weight_min} Kg. min ~ {dogId.weight_max} Kg. max.
               </p>
               <p>
-                Height: {dogId.height_min} min ~ {dogId.height_max} max Cm.
+                Height: {dogId.height_min} Cm. min ~ {dogId.height_max} Cm. max.
               </p>
               <p>Life Span: {dogId.life_span}</p>
               <p>

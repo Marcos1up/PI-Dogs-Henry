@@ -2,6 +2,7 @@ import {
   GET_ALL_DOGS,
   GET_DOGS_BY_ID,
   GET_DOGS_BY_NAME,
+  RELOAD,
   SORT_BY_NAME,
 } from "./actions";
 
@@ -29,6 +30,11 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         perritoId: payload,
+      };
+    case RELOAD:
+      return {
+        ...state,
+        AllDogsCopy: [],
       };
     case SORT_BY_NAME:
       if (payload === "desc") {
