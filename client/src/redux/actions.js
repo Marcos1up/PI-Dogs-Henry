@@ -33,7 +33,7 @@ export function getDogById(id) {
         payload: res.data,
       });
     } catch (error) {
-      console.log(error);
+      alert("Dog not found")
     }
   };
 }
