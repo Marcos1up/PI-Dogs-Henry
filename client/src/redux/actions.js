@@ -12,7 +12,7 @@ export const getAllDogs = () => {
   };
 };
 
-export function getDogByName(name) {
+export function getDogByName(name) {    //para el searchBar
   return async function (dispatch) {
     const dogsByName = await axios.get(
       `http://localhost:3001/dogs?name=${name}`
@@ -27,10 +27,10 @@ export function getDogByName(name) {
 export function getDogById(id) {
   return async function (dispatch) {
     try {
-      const dogsById = await axios.get(`http://localhost:3001/dogs/${id}`);
+      const res = await axios.get(`http://localhost:3001/dogs/${id}`);
       dispatch({
         type: GET_DOGS_BY_ID,
-        payload: dogsById.data[0],
+        payload: res.data,
       });
     } catch (error) {
       console.log(error);

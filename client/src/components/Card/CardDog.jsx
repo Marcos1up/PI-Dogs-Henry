@@ -27,7 +27,7 @@ export default function CardDog() {
               <h4>
                 weight: {e.weight_min} - {e.weight_max}
               </h4>
-              <Link to={`/home/${e.name}`}> {e.name} </Link>
+              <Link to={`/home/${e.id}`}> {e.name} </Link>
             </div>
           );
         })}
