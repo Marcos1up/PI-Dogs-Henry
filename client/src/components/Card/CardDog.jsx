@@ -25,7 +25,10 @@ export default function CardDog() {
               <h3>id: {e.id}</h3>
               <h3>temperament: {e.temperament}</h3>
               <h4>
-                weight: {e.weight_min} - {e.weight_max}
+                weight:{" "}
+                {e.weight_min && e.weight_max
+                  ? e.weight_min + " - " + e.weight_max
+                  : "Unregistered weight"}
               </h4>
               <Link to={`/home/${e.id}`}> {e.name} </Link>
             </div>
