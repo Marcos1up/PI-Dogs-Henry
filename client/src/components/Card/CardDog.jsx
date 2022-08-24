@@ -21,11 +21,13 @@ export default function CardDog() {
           return (
             <div key={e.id}>
               <img src={e.image} alt={dog404} width={400}></img>
-              <h1>name: {e.name} </h1>
-              <h3>id: {e.id}</h3>
-              <h3>temperament: {e.temperament}</h3>
+              <h1>Name: {e.name} </h1>
+              <h3>Id: {e.id}</h3>
+              <h3>
+                Temperament: <br /> {e.temperament}
+              </h3>
               <h4>
-                weight:{" "}
+                Weight:{" "}
                 {e.weight_min && e.weight_max
                   ? e.weight_min + " - " + e.weight_max
                   : "Unregistered weight"}

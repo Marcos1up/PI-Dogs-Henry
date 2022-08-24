@@ -24,7 +24,7 @@ export default function SearchBar() {
       <div>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search Dog..."
           onChange={handleInputChange}
           value={input}
         />

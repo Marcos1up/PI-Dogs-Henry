@@ -1,11 +1,12 @@
 import {
   GET_ALL_DOGS,
+  GET_TEMPERAMENTS,
   GET_DOGS_BY_ID,
   GET_DOGS_BY_NAME,
-  GET_TEMPERAMENTS,
   RELOAD,
   SET_ORDER_WEIGTH,
   SORT_BY_NAME,
+  FILTER_TEMPERAMENT,
 } from "./actions";
 
 const initialState = {
@@ -23,6 +24,11 @@ function reducer(state = initialState, { type, payload }) {
         dogs: payload,
         AllDogsCopy: payload,
       };
+    case GET_TEMPERAMENTS:
+      return {
+        ...state,
+        temperaments: payload,
+      };
     case GET_DOGS_BY_NAME:
       return {
         ...state,
@@ -32,11 +38,6 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         perritoId: payload,
-      };
-    case GET_TEMPERAMENTS:
-      return {
-        ...state,
-        temperaments: payload,
       };
     case RELOAD:
       return {
@@ -75,6 +76,17 @@ function reducer(state = initialState, { type, payload }) {
         ...state,
         dogs: orderWeight,
       };
+    case FILTER_TEMPERAMENT:
+      const allDogsTemp = state.AllDogsCopy;
+      const tempFilter =
+        payload === "temperament"
+          ? allDogsTemp
+          : allDogsTemp.filter((t) => t.temperament?.includes(payload));
+      return {
+        ...state,
+        dogs: tempFilter,
+      };
+
     default:
       return state;
   }
