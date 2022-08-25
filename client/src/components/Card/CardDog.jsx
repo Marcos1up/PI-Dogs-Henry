@@ -20,7 +20,7 @@ export default function CardDog() {
         dogs.map((e) => {
           return (
             <div key={e.id}>
-              <img src={e.image} alt={dog404} width={400}></img>
+              <img src={e.image ? e.image : dog404} alt="Doggy not found" width={400}></img>
               <h1>Name: {e.name} </h1>
               <h3>Id: {e.id}</h3>
               <h3>

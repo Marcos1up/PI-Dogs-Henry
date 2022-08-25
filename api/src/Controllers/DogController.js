@@ -10,16 +10,13 @@ const getDog = async (req, res) => {
       );
       dogName.length
         ? res.status(200).send(dogName)
-        : res
-            .status(400)
-            .send({
-              message:
-                "Can't find the dog with the name you are looking for.",
-            }); //acá hay que cambiarlo a ALERTAAAAA
+        : res.status(400).send({
+            message: "Can't find the dog with the name you are looking for",
+          });
     } else {
       AllDogs.length
         ? res.status(200).send(AllDogs)
-        : res.status(404).send({ message: "Dog's not found" }); //acá hay que cambiarlo a ALERTAAAAA
+        : res.status(404).send({ message: "Dog's not found" });
     }
   } catch (error) {
     console.log(error);

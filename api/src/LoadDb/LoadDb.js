@@ -42,7 +42,7 @@ const getDBInfoDog = async () => {
 const getAllDogs = async () => {
   const apiInfo = await getApiInfo();
   const DBInfo = await getDBInfoDog();
-  const totalInfo = apiInfo.concat(DBInfo);
+  const totalInfo = [...DBInfo, ...apiInfo];
   return totalInfo;
 };
 

@@ -52,7 +52,6 @@ function reducer(state = initialState, { type, payload }) {
           : payload === "asc"
           ? state.dogs.sort((a, b) => a.name.localeCompare(b.name))
           : state.dogs.sort((a, b) => b.name.localeCompare(a.name));
-      console.log(payload);
       return {
         ...state,
         dogs: sortedArr,
