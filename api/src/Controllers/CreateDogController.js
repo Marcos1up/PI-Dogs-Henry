@@ -4,10 +4,10 @@ const createDog = async (req, res) => {
   try {
     const {
       name,
-      weightMax,
-      weightMin,
-      heightMax,
-      heightMin,
+      weight_max,
+      weight_min,
+      height_max,
+      height_min,
       lifeSpan,
       temperament,
       image,
@@ -16,10 +16,10 @@ const createDog = async (req, res) => {
 
     if (
       !name ||
-      !weightMax ||
-      !weightMin ||
-      !heightMax ||
-      !heightMin ||
+      !weight_max ||
+      !weight_min ||
+      !height_max ||
+      !height_min ||
       !lifeSpan ||
       !temperament
     ) {
@@ -27,10 +27,10 @@ const createDog = async (req, res) => {
     } else {
       const newDog = await Dog.create({
         name,
-        weightMin,
-        weightMax,
-        heightMax,
-        heightMin,
+        weight_min,
+        weight_max,
+        height_max,
+        height_min,
         image,
         temperament,
         lifeSpan,

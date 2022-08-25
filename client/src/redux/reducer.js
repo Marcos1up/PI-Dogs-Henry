@@ -7,6 +7,7 @@ import {
   SET_ORDER_WEIGTH,
   SORT_BY_NAME,
   FILTER_TEMPERAMENT,
+  ORDER_BY_CREATION,
 } from "./actions";
 
 const initialState = {
@@ -45,19 +46,16 @@ function reducer(state = initialState, { type, payload }) {
         AllDogsCopy: [],
       };
     case SORT_BY_NAME:
-      if (payload === "desc") {
-        return {
-          ...state,
-          dogs: [...state.dogs].sort((a, b) =>
-            a.name.toUpperCase() < b.name.toUpperCase() ? 1 : -1
-          ),
-        };
-      }
+      const sortedArr =
+        payload === "none"
+          ? state.dogs
+          : payload === "asc"
+          ? state.dogs.sort((a, b) => a.name.localeCompare(b.name))
+          : state.dogs.sort((a, b) => b.name.localeCompare(a.name));
+      console.log(payload);
       return {
         ...state,
-        dogs: [...state.dogs].sort((a, b) =>
-          a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1
-        ),
+        dogs: sortedArr,
       };
     case SET_ORDER_WEIGTH:
       let orderWeight = [];
@@ -85,6 +83,20 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         dogs: tempFilter,
+      };
+    case ORDER_BY_CREATION:
+      let all = state.AllDogsCopy;
+      let byDb = [];
+      if (payload === "all") {
+        byDb = all;
+      } else if (payload === "api") {
+        byDb = all.filter((d) => d.id <= 270);
+      } else if (payload === "mydogs") {
+        byDb = all.filter((d) => d.id.length >= 4);
+      }
+      return {
+        ...state,
+        dogs: byDb,
       };
 
     default:

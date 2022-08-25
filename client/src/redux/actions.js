@@ -8,6 +8,7 @@ export const RELOAD = "RELOAD";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SET_ORDER_WEIGTH = "SET_ORDER_WEIGTH";
 export const FILTER_TEMPERAMENT = "FILTER_TEMPERAMENT";
+export const ORDER_BY_CREATION = "ORDER_BY_CREATION";
 
 export const getAllDogs = () => {
   return async (dispatch) => {
@@ -79,6 +80,7 @@ export const sortByName = (payload) => {
     payload,
   };
 };
+
 export function orderWeigth(payload) {
   return {
     type: SET_ORDER_WEIGTH,
@@ -89,6 +91,13 @@ export function orderWeigth(payload) {
 export function filterTemperament(payload) {
   return {
     type: FILTER_TEMPERAMENT,
+    payload,
+  };
+}
+
+export function orderByCreation(payload) {
+  return {
+    type: ORDER_BY_CREATION,
     payload,
   };
 }

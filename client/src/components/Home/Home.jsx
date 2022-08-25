@@ -4,6 +4,7 @@ import {
   filterTemperament,
   getAllDogs,
   getTemperaments,
+  orderByCreation,
   orderWeigth,
   sortByName,
 } from "../../redux/actions";
@@ -48,10 +49,18 @@ export default function Home() {
     setOrder(e.target.value);
   }
 
-  let handleReload = (e) => {
+  function handleOrderByCreation(e) {
+    //filtro por creados y DB
+    e.preventDefault();
+    dispatch(orderByCreation(e.target.value));
+    setOrder(e.target.value);
+  }
+
+  /* let handleReload = (e) => {
+    //reload
     e.preventDefault();
     dispatch(getAllDogs());
-  };
+  }; */
 
   return (
     <div id={styles.showcase}>
@@ -62,13 +71,7 @@ export default function Home() {
           <p>Sort by Name: </p>
           <div value={asc}>
             <select onChange={(e) => handleOrdChange(e)}>
-              <option
-                value="none"
-                key="none"
-                onClick={(e) => {
-                  handleReload(e);
-                }}
-              >
+              <option value="none" key="none">
                 Disable
               </option>
               <option value="asc" key="asc">
@@ -109,10 +112,30 @@ export default function Home() {
             </select>
           </div>
         </div>
+        <div>
+          <p>Filter by types dogs: </p>
+          <div>
+            <select
+              onChange={(e) => handleOrderByCreation(e)}
+              className="filter"
+            >
+              <option value="all" defaultValue="all">
+                All Dogs
+              </option>
+              <option value="api">DogsFromApi</option>
+              <option value="mydogs">DogsFromDb</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div>
-        <h1>Henry's Dogs</h1>
-        <CardDog />
+        <div>
+          <h1>Henry's Dogs</h1>
+          <h4>by Marcos Soria</h4>
+        </div>
+        <div>
+          <CardDog />
+        </div>
       </div>
     </div>
   );
