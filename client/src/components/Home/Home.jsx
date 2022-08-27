@@ -8,7 +8,6 @@ import {
   orderWeigth,
   sortByName,
 } from "../../redux/actions";
-import style from "../Home/Home.module.css";
 
 import CardDog from "../Card/CardDog";
 import Nav from "../NavBar/NavBar";
@@ -63,19 +62,19 @@ export default function Home() {
   };
 
   return (
-    <div className={style.body}>
+    <div>
       <Nav />
       <SearchBar />
-      <div className={style.filters}>
+      <div>
         <div>
           <div>
-          <p>Reload dogs: </p>
+            <p>Reload dogs: </p>
             <button onClick={(e) => handleReload(e)}>Reload</button>
           </div>
         </div>
         <div>
           <div value={asc}>
-          <p>Sort by Name: </p>
+            <p>Sort by Name: </p>
             <select onChange={(e) => handleOrdChange(e)}>
               <option value="none" key="none">
                 Disable
@@ -91,7 +90,7 @@ export default function Home() {
         </div>
         <div>
           <div value={weigth}>
-          <p>Sort by Weight: </p>
+            <p>Sort by Weight: </p>
             <select onChange={(e) => handleOrdChangeWeigth(e)}>
               <option value="none" key="none">
                 Disable
@@ -107,7 +106,7 @@ export default function Home() {
         </div>
         <div>
           <div>
-          <p>Filter by temperament: </p>
+            <p>Filter by temperament: </p>
             <select value={order} onChange={(e) => handleFilterTemperament(e)}>
               <option value="temperament">Disable</option>
               {allTemperaments.map((element) => (
@@ -120,7 +119,7 @@ export default function Home() {
         </div>
         <div>
           <div>
-          <p>Filter by types dogs: </p>
+            <p>Filter by types dogs: </p>
             <select
               onChange={(e) => handleOrderByCreation(e)}
               className="filter"
