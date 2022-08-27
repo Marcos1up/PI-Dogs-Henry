@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogById } from "../../redux/actions";
 import Nav from "../NavBar/NavBar";
-import style from './dogDetail.module.css';
 
 import dog404 from "../../Assets/photo404Dogs.jpg"
 
@@ -15,32 +14,30 @@ export default function DogDetail(props) {
     dispatch(getDogById(aux));
   }, [dispatch, aux]);
 
-  console.log(aux)
-  console.log(dogId)
   return (
     <div>
       <Nav />
-      <div className={style.card}>
+      <div>
         {dogId ? (
           <div>
             <div>
               <img src={dogId.image ? dogId.image : dog404} alt="Not found" width={400} />
             </div>
-            <div ClassName={style.content}>
+            <div>
               <h4>Name: "{dogId.name}"</h4>
-              <h4>Breed: {dogId.breed_group}</h4>
+              <h4>Breed: {dogId.breed_group ? dogId.breed_group : "Undefined Breed"}</h4>
               <p>
                 Weight: {dogId.weight_min} Kg. min ~ {dogId.weight_max} Kg. max.
               </p>
               <p>
                 Height: {dogId.height_min} Cm. min ~ {dogId.height_max} Cm. max.
               </p>
-              <p>Life Span: {dogId.life_span}</p>
+              <p>Life Span: {dogId.life_span ? dogId.life_span : dogId.lifeSpan}</p>
               <p>
                 Temperaments:{" "}
                 {!dogId.createdAt
                   ? dogId.temperament
-                  : dogId.Temperaments[0].name}
+                  : dogId.temperaments.map(e => e.name).join(", ")}
               </p>
             </div>
           </div>

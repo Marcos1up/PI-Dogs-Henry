@@ -1,6 +1,26 @@
 const { Temperament, Dog } = require("../db");
 
 const createDog = async (req, res) => {
+  /* const {
+    name,
+    weight_max,
+    weight_min,
+    height_max,
+    height_min,
+    lifeSpan,
+    temperaments,
+    image,
+  } = req.body;
+    let dogCreate= await Dog.create({
+      image, name, weight_min, weight_max, height_min, height_max, lifeSpan
+    })
+    let tempDb= await Temperament.findAll({
+        where: {name: temperaments}
+    })
+    dogCreate.addTemperament(tempDb);
+    console.log(dogCreate)
+    res.send('La rza de perro fue creada exitosamente') */
+
   try {
     const {
       name,
@@ -9,16 +29,16 @@ const createDog = async (req, res) => {
       height_max,
       height_min,
       lifeSpan,
-      temperament,
+      temperaments,
       image,
       createdInDb,
     } = req.body;
 
     const dbCheck = await Dog.findOne({
       where: {
-        name: name
-      }
-    })
+        name: name,
+      },
+    });
 
     if (dbCheck) {
       res.status(404).send({ message: "The dog is already exist" });
@@ -30,22 +50,22 @@ const createDog = async (req, res) => {
         height_max,
         height_min,
         image,
-        temperament,
         lifeSpan,
         createdInDb,
       });
 
       let temperamentDb = await Temperament.findAll({
         where: {
-          name: temperament,
+          name: temperaments,
         },
       });
+      console.log(temperamentDb);
 
-      await newDog.addTemperament(temperamentDb);
+      newDog.addTemperament(temperamentDb);
       res.status(200).send(newDog);
     }
   } catch (error) {
-    console.log("Created dog Error", error);
+    //console.log("Created dog Error", error);
     res.status(400).json({ message: "Error creating a new dog" });
   }
 };

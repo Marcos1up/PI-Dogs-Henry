@@ -8,7 +8,9 @@ const getAllTemperament = async (req, res) => {
       const apiTemperaments = await getApiInfo();
 
       let temperamentapi = apiTemperaments
-        .map((element) => element.temperament?.split(","))
+        .map((element) => element.temperament)
+        .join(", ")
+        .split(", ")
         .flat();
 
       temperamentapi.forEach(async (temp) => {
