@@ -9,6 +9,7 @@ export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SET_ORDER_WEIGTH = "SET_ORDER_WEIGTH";
 export const FILTER_TEMPERAMENT = "FILTER_TEMPERAMENT";
 export const ORDER_BY_CREATION = "ORDER_BY_CREATION";
+export const CREATE_DOG = "CREATE_DOG";
 
 export const getAllDogs = () => {
   return async (dispatch) => {
@@ -99,6 +100,24 @@ export function orderByCreation(payload) {
   return {
     type: ORDER_BY_CREATION,
     payload,
+  };
+}
+
+export function createDog(payload) {
+  return async function (dispatch) {
+    //console.log(payload);
+    try {
+      const createDog = await axios.post(
+        "http://localhost:3001/dogs/create",
+        payload
+      );
+      return dispatch({
+        type: CREATE_DOG,
+        payload: createDog.data,
+      });
+    } catch (error) {
+      alert("Error creating a new dog");
+    }
   };
 }
 

@@ -56,11 +56,11 @@ export default function Home() {
     setOrder(e.target.value);
   }
 
-  /* let handleReload = (e) => {
+  let handleReload = (e) => {
     //reload
     e.preventDefault();
     dispatch(getAllDogs());
-  }; */
+  };
 
   return (
     <div id={styles.showcase}>
@@ -68,8 +68,14 @@ export default function Home() {
       <SearchBar />
       <div>
         <div>
-          <p>Sort by Name: </p>
+          <div>
+          <p>Reload dogs: </p>
+            <button onClick={(e) => handleReload(e)}>Reload</button>
+          </div>
+        </div>
+        <div>
           <div value={asc}>
+          <p>Sort by Name: </p>
             <select onChange={(e) => handleOrdChange(e)}>
               <option value="none" key="none">
                 Disable
@@ -84,8 +90,8 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <p>Sort by Weight: </p>
           <div value={weigth}>
+          <p>Sort by Weight: </p>
             <select onChange={(e) => handleOrdChangeWeigth(e)}>
               <option value="none" key="none">
                 Disable
@@ -100,8 +106,8 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <p>Filter by temperament: </p>
           <div>
+          <p>Filter by temperament: </p>
             <select value={order} onChange={(e) => handleFilterTemperament(e)}>
               <option value="temperament">Disable</option>
               {allTemperaments.map((element) => (
@@ -113,8 +119,8 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <p>Filter by types dogs: </p>
           <div>
+          <p>Filter by types dogs: </p>
             <select
               onChange={(e) => handleOrderByCreation(e)}
               className="filter"

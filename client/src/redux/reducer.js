@@ -14,7 +14,7 @@ const initialState = {
   dogs: [],
   AllDogsCopy: [],
   temperaments: [],
-  details: [],
+  perritoId: [],
 };
 
 function reducer(state = initialState, { type, payload }) {

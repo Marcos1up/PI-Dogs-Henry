@@ -9,13 +9,12 @@ export default function DogDetail(props) {
   let aux = props.match.params.id;
   const dispatch = useDispatch();
 
-  /* const dog404 =
-    "https://st2.depositphotos.com/1229718/8159/i/950/depositphotos_81597492-stock-photo-404-error.jpg"; */
-
   useEffect(() => {
     dispatch(getDogById(aux));
   }, [dispatch, aux]);
 
+  console.log(aux)
+  console.log(dogId)
   return (
     <div>
       <Nav />
