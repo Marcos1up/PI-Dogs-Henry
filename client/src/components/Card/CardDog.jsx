@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllDogs } from "../../redux/actions";
+import style from './dogcard.module.css';
 
 export default function CardDog() {
   const dogs = useSelector((state) => state.dogs);
@@ -15,11 +16,11 @@ export default function CardDog() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={style.card}>
       {dogs &&
         dogs.map((e) => {
           return (
-            <div key={e.id}>
+            <div key={e.id} className={style.cards}>
               <img src={e.image ? e.image : dog404} alt="Doggy not found" width={400}></img>
               <h1>Name: {e.name} </h1>
               <h3>Id: {e.id}</h3>
@@ -32,7 +33,7 @@ export default function CardDog() {
                   ? e.weight_min + " - " + e.weight_max
                   : "Unregistered weight"}
               </h4>
-              <Link to={`/home/${e.id}`}> {e.name} </Link>
+              <Link className={style.link} to={`/home/${e.id}`}> {e.name} </Link>
             </div>
           );
         })}

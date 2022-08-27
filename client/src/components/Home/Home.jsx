@@ -8,7 +8,7 @@ import {
   orderWeigth,
   sortByName,
 } from "../../redux/actions";
-import styles from "../Home/Home.module.css";
+import style from "../Home/Home.module.css";
 
 import CardDog from "../Card/CardDog";
 import Nav from "../NavBar/NavBar";
@@ -63,10 +63,10 @@ export default function Home() {
   };
 
   return (
-    <div id={styles.showcase}>
+    <div className={style.body}>
       <Nav />
       <SearchBar />
-      <div>
+      <div className={style.filters}>
         <div>
           <div>
           <p>Reload dogs: </p>

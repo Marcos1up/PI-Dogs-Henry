@@ -1,0 +1,36 @@
+/* .back {
+  background-image: url(./1.jpg);
+} */
+
+.tittle {
+  font-size: 5em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.createdog {
+  font-size: 27px;
+  margin-right: 2%;
+}
+
+.error {
+  color: red;
+}
+
+.dots {
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.lettersB {
+  font-size: 25px;
+  background-color: rgb(122, 119, 119);
+  margin-right: 40px;
+  cursor: pointer;
+  margin-bottom: 60px;
+}

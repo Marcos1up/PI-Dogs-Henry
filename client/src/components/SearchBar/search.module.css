@@ -1,0 +1,27 @@
+.search {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  margin: 5px;
+  height: 30px;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  color: #198754;
+  border-color: #198754;
+}
+.btn:hover {
+  background-color: #198754;
+  color: white;
+  border-color: white;
+}
+
+.filter {
+  display: flex;
+}
