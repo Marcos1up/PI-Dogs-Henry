@@ -104,24 +104,39 @@ export function orderByCreation(payload) {
 }
 
 export function createDog(payload) {
+  function primeraLetraMayus(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return async function (dispatch) {
-    //console.log(payload);
-    try {
-      const createDog = await axios.post(
-        "http://localhost:3001/dogs/create",
-        payload
-      );
-      return dispatch({
-        type: CREATE_DOG,
-        payload: createDog.data,
-      });
-    } catch (error) {
-      alert("Error creating a new dog");
-    }
+    let newDog = {
+      name: primeraLetraMayus(payload.name),
+      image: payload.image,
+      height_max: payload.height_max,
+      height_min: payload.height_min,
+      weight_min: payload.weight_min,
+      weight_max: payload.weight_max,
+      lifeSpan: payload.lifeSpan,
+      temperaments: payload.temperament,
+    };
+    const res = await axios.post("http://localhost:3001/create", newDog);
+    return {
+      type: CREATE_DOG,
+      payload: res,
+    };
   };
 }
 
 /* 
+
+name: "",
+        image: "",
+        weight_max: "",
+        weight_min: "",
+        height_max: "",
+        height_min: "",
+        lifeSpan: "",
+        temperament: [],
 
 router.get("/dogs", getDog);
 

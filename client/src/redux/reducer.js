@@ -8,6 +8,7 @@ import {
   SORT_BY_NAME,
   FILTER_TEMPERAMENT,
   ORDER_BY_CREATION,
+  CREATE_DOG,
 } from "./actions";
 
 const initialState = {
@@ -96,6 +97,10 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         dogs: byDb,
+      };
+    case CREATE_DOG:
+      return {
+        ...state,
       };
 
     default:

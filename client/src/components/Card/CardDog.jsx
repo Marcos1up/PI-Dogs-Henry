@@ -32,7 +32,7 @@ export default function CardDog() {
               <h4>
                 Weight:{" "}
                 {e.weight_min && e.weight_max
-                  ? e.weight_min + " - " + e.weight_max
+                  ? e.weight_min + " Kg. min - " + e.weight_max + " Kg. max."
                   : "Unregistered weight"}
               </h4>
               <Link to={`/home/${e.id}`}> {e.name} </Link>
