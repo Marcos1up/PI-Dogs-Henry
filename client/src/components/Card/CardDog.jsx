@@ -24,7 +24,10 @@ export default function CardDog() {
               <h1>Name: {e.name} </h1>
               <h3>Id: {e.id}</h3>
               <h3>
-                Temperament: <br /> {e.temperament}
+                Temperament: {" "}
+                {!e.createdAt
+                  ? e.temperament
+                  : e.temperaments.map((e) => e.name).join(", ")}
               </h3>
               <h4>
                 Weight:{" "}
