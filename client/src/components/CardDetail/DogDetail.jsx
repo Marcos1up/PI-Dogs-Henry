@@ -29,10 +29,6 @@ export default function DogDetail(props) {
             </div>
             <div>
               <h4>Name: "{dogId.name}"</h4>
-              <h4>
-                Breed:{" "}
-                {dogId.breed_group ? dogId.breed_group : "Undefined Breed"}
-              </h4>
               <p>
                 Weight: {dogId.weight_min} Kg. min. ~ {dogId.weight_max} Kg. max.
               </p>
@@ -40,7 +36,7 @@ export default function DogDetail(props) {
                 Height: {dogId.height_min} Cm. min. ~ {dogId.height_max} Cm. max.
               </p>
               <p>
-                Life Span: {dogId.life_span ? dogId.life_span : `Around ${dogId.lifeSpan} Years`}
+                Life Span: {dogId.life_span ? dogId.life_span : `${dogId.lifeSpan} Years`}
               </p>
               <p>
                 Temperaments:{" "}

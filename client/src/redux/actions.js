@@ -116,7 +116,7 @@ export function createDog(payload) {
       height_min: payload.height_min,
       weight_min: payload.weight_min,
       weight_max: payload.weight_max,
-      lifeSpan: payload.lifeSpan,
+      lifeSpan: payload.lifeSpan_min + " - " + payload.lifeSpan_max,
       temperaments: payload.temperament,
     };
     const res = await axios.post("http://localhost:3001/create", newDog);
@@ -128,15 +128,6 @@ export function createDog(payload) {
 }
 
 /* 
-
-name: "",
-        image: "",
-        weight_max: "",
-        weight_min: "",
-        height_max: "",
-        height_min: "",
-        lifeSpan: "",
-        temperament: [],
 
 router.get("/dogs", getDog);
 

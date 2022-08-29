@@ -58,17 +58,29 @@ function validation(input) {
     errors.height_min = "Min height cant be greater than Max height"
   }
 
-  if (!input.lifeSpan) {
-    errors.lifeSpan = "The life expectancy of the dog is required";
-  } else if (isNaN(parseInt(input.lifeSpan))) {
-    errors.lifeSpan = "The life expectancy of the dog must be a number"
-  } else if (input.lifeSpan <= 0) {
-    errors.lifeSpan = "The life expectancy of the dog cannot be less than 0"
+  if (!input.lifeSpan_max) {
+    errors.lifeSpan_max = "The Max life expectancy of the dog is required";
+  } else if (isNaN(parseInt(input.lifeSpan_max))) {
+    errors.lifeSpan_max = "The life expectancy of the dog must be a number"
+  } else if (input.lifeSpan_max <= 0) {
+    errors.lifeSpan_max = "The Max life expectancy of the dog cannot be less than 0"
+  } else if (input.lifeSpan_max < input.lifeSpan_min) {
+    errors.lifeSpan_max = "Must be greater than value min"
   }
 
-  if (input.temperament.length < 1) {
-    errors.temperament = 'Temperaments of the dog is required';
+  if (!input.lifeSpan_min) {
+    errors.lifeSpan_min = "The Min life expectancy of the dog is required";
+  } else if (isNaN(parseInt(input.lifeSpan_min))) {
+    errors.lifeSpan_min = "The life expectancy of the dog must be a number"
+  } else if (input.lifeSpan_min <= 0) {
+    errors.lifeSpan_min = "The Min life expectancy of the dog cannot be less than 0"
+  } else if (input.lifeSpan_min > input.lifeSpan_max) {
+    errors.lifeSpan_min = "The Min life expectancy cant be greater than Max height"
   }
+
+  /* if (input.temperament.length < 1) {
+    errors.temperament = "Temperaments of the dog is required";
+  } */
 
   return errors;
 }
@@ -85,7 +97,8 @@ export default function CreateDog() {
     weight_min: "",
     height_max: "",
     height_min: "",
-    lifeSpan: "",
+    lifeSpan_max: "",
+    lifeSpan_min: "",
     temperament: [],
   });
 
@@ -97,7 +110,17 @@ export default function CreateDog() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (input.name !== '' && input.weight_min !== '' && input.height_max !== '' && input.weight_min !== '' && input.weight_max !== '' && input.lifeSpan !== '' && input.temperament.length !== 0) {
+    if (Object.values(errors).length > 0) {
+      alert("Please may you fill the form correctly")
+    } else if (
+      input.name !== "" &&
+      input.weight_min !== "" &&
+      input.height_max !== "" &&
+      input.weight_min !== "" &&
+      input.weight_max !== "" &&
+      input.lifeSpan !== "" &&
+      input.temperament.length !== 0
+    ) {
       dispatch(createDog(input));
       setInput({
         name: "",
@@ -106,7 +129,8 @@ export default function CreateDog() {
         weight_min: "",
         height_max: "",
         height_min: "",
-        lifeSpan: "",
+        lifeSpan_max: "",
+        lifeSpan_min: "",
         temperament: [],
       })
       alert("your dog was successfully created")
@@ -149,7 +173,7 @@ export default function CreateDog() {
       <form onSubmit={(e) => handleSubmit(e)} id="form">
         <div className="createdog">
           <div>
-            <label className="createdog">Name: </label>
+            <label className="createdog">Name of the dog: </label>
             <input type="text" value={input.name} name="name" className="dots" onChange={e => handleInputChange(e)} />
             {errors.name && (
               <p className="error">{errors.name}</p>
@@ -191,10 +215,17 @@ export default function CreateDog() {
             )}
           </div>
           <div>
-            <label className="createdog">The life expectancy: </label>
-            <input type="number" value={input.lifeSpan} name="lifeSpan" className="dots" onChange={e => handleInputChange(e)} />
-            {errors.lifeSpan && (
-              <p className="error">{errors.lifeSpan}</p>
+            <label className="createdog">Max life expectancy: </label>
+            <input type="number" value={input.lifeSpan_max} name="lifeSpan_max" className="dots" onChange={e => handleInputChange(e)} />
+            {errors.lifeSpan_max && (
+              <p className="error">{errors.lifeSpan_max}</p>
+            )}
+          </div>
+          <div>
+            <label className="createdog">Min life expectancy: </label>
+            <input type="number" value={input.lifeSpan_min} name="lifeSpan_min" className="dots" onChange={e => handleInputChange(e)} />
+            {errors.lifeSpan_min && (
+              <p className="error">{errors.lifeSpan_min}</p>
             )}
           </div>
           <div>
@@ -240,6 +271,7 @@ export default function CreateDog() {
             )}
           </div>
         </div>
+        <br />
         <div>
           <Link to="/home">
             <button className="lettersB">Back to Home</button>
