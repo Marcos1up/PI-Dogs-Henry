@@ -1,9 +1,28 @@
-.nav {
+.flex_container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
   align-items: center;
-  background-color: #3dd1e7;
-  border: 0 solid #e5e7eb;
-  margin: 10px;
-  height: 50px;
+  justify-content: space-around;
+  min-height: 10vh;
+  height: 12vh;
+  width: 100%;
+  opacity: 45%;
+  text-shadow: 1px 1px 5px black;
+  filter: brightness(2);
+}
+.letters {
+  cursor: pointer;
+  color: rgb(75, 11, 11);
+  font-size: 50px;
+}
+.letters:hover {
+  transform: scale(135%);
+  color: red;
+  transition: 0.5s;
+  text-shadow: 1px 1px 20px black;
+}
+@media (max-width: 570px) {
+  .letters {
+    font-size: 30px;
+  }
 }

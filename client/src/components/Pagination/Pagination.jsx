@@ -1,21 +1,21 @@
 import React from "react";
 
-export default function Pagination({ dogsPerPage, totalDogs, paginate }) {
-  const pageNumbers = [];
+export default function Pagination({ dogsPerPage, dogs, paginate }) {
+  const pageNumber = [];
 
-  for (let i = 1; i <= Math.ceil(totalDogs / dogsPerPage); i++) {
-    pageNumbers.push(i);
+  for (let i = 1; i <= Math.ceil(dogs / dogsPerPage); i++) {
+    pageNumber.push(i);
   }
   return (
     <nav>
       <ul>
-        {pageNumbers.map((number) => {
-          return (
-            <button onClick={() => paginate(number)} key={number}>
-              {number}
-            </button>
-          );
-        })}
+        {
+          pageNumber?.map(number => (
+
+            <button key={number} onClick={() => paginate(number)}>{number}</button>
+
+          ))
+        }
       </ul>
     </nav>
   );

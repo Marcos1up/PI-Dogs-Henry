@@ -22,12 +22,13 @@ export default function SearchBar() {
 
   return (
     <div className={style.search}>
-      <div className={style.searchBar}>
+      <div>
         <input
           type="text"
           placeholder="Search Dog..."
           onChange={handleInputChange}
           value={input}
+          className={style.search}
         />
         <button className={style.btn} type="submit" onClick={handleSubmit}>
           Search

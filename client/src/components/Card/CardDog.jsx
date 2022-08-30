@@ -1,25 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllDogs } from "../../redux/actions";
+import Pagination from "../Pagination/Pagination";
+import styles from "./Card.module.css";
 
 export default function CardDog() {
   const dogs = useSelector((state) => state.dogs);
+
   const dispatch = useDispatch();
+
+  //const del paginado
+  const [currentPage, setCurrentPage] = useState(1);
+  const dogsPerPage = 8;
+
+  const indexOfLast = currentPage * dogsPerPage;
+  const IndesOfFirst = indexOfLast - dogsPerPage;
+  const currentDogs = dogs.slice(IndesOfFirst, indexOfLast);
 
   const dog404 =
     "https://st2.depositphotos.com/1229718/8159/i/950/depositphotos_81597492-stock-photo-404-error.jpg";
+
+
+  function paginate(pageNumber) {
+    setCurrentPage(pageNumber)
+  }
 
   useEffect(() => {
     dispatch(getAllDogs());
   }, [dispatch]);
 
+
+
+  console.log((IndesOfFirst, indexOfLast))
   return (
     <div>
-      {dogs &&
-        dogs.map((e) => {
+      <Pagination
+        dogsPerPage={dogsPerPage}
+        dogs={dogs.length}
+        paginate={paginate}
+      />
+      {currentDogs &&
+        currentDogs.map((e) => {
           return (
-            <div key={e.id}>
+            <div className={styles.detail2} key={e.id}>
               <img src={e.image ? e.image : dog404} alt="Doggy not found" width={400}></img>
               <h1>Name: {e.name} </h1>
               <h3>Id: {e.id}</h3>
@@ -39,6 +63,11 @@ export default function CardDog() {
             </div>
           );
         })}
+      <Pagination
+        dogsPerPage={dogsPerPage}
+        dogs={dogs.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
@@ -50,16 +79,4 @@ image: e.image,
 name: e.name,
 temperamento: e.temperament,
 peso: e.weight_max,  
-
-id: e.id,
-name: e.name,
-image: e.image.url ? e.image.url : dog404, 
-breed_group: e.breed_group,
-temperament: e.temperament ? e.temperament : "Dog without temperament",
-life_span: e.life_span,
-weight_min: parseInt(e.weight.metric.slice(0, 2).trim()),
-weight_max: parseInt(e.weight.metric.slice(4).trim()),
-height_min: parseInt(e.height.metric.slice(0, 2).trim()),
-height_max: parseInt(e.height.metric.slice(4).trim()),
-
 */

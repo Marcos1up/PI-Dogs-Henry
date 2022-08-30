@@ -12,6 +12,7 @@ import {
 import CardDog from "../Card/CardDog";
 import Nav from "../NavBar/NavBar";
 import SearchBar from "../SearchBar/SearchBar";
+import style from './Home.module.css';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -68,8 +69,8 @@ export default function Home() {
       <div>
         <div>
           <div>
-            <p>Reload dogs: </p>
-            <button onClick={(e) => handleReload(e)}>Reload</button>
+            <p>.</p>
+            <button onClick={(e) => handleReload(e)}>Reload dogs</button>
           </div>
         </div>
         <div>

@@ -3,15 +3,15 @@ import style from './NavBar.module.css';
 
 export default function Nav() {
   return (
-    <div className={style.nav}>
-      <Link to="/">
-      <div>Start</div>
+    <div className={style.flex_container}>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <div className={style.letters}>Start</div>
       </Link>
-      <Link to="/home">
-        <div>Home</div>
+      <Link to="/home" style={{ textDecoration: "none" }}>
+        <div className={style.letters}>Home</div>
       </Link>
-      <Link to="/dogs">
-        <div>Create Dog</div>
+      <Link to="/dogs" style={{ textDecoration: "none" }}>
+        <div className={style.letters}>Create Dog</div>
       </Link>
     </div>
   );

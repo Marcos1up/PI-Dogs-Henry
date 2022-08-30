@@ -254,7 +254,7 @@ export default function CreateDog() {
           </div>
           <div>
             {input.temperament.map((element) => (
-              <div>
+              <div key={element}>
                 <h5>
                   {element}
                   <button

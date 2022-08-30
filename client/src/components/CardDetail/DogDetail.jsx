@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogById } from "../../redux/actions";
 import Nav from "../NavBar/NavBar";
+import styles from "./CardDetail.module.css";
 
 import dog404 from "../../Assets/photo404Dogs.jpg";
 
@@ -15,11 +16,11 @@ export default function DogDetail(props) {
   }, [dispatch, aux]);
 
   return (
-    <div>
+    <div className={styles.detail}>
       <Nav />
       <div>
         {dogId ? (
-          <div>
+          <div className={styles.detail2}>
             <div>
               <img
                 src={dogId.image ? dogId.image : dog404}
