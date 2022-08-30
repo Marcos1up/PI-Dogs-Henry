@@ -20,3 +20,15 @@ export default function Pagination({ dogsPerPage, dogs, paginate }) {
     </nav>
   );
 }
+
+
+/* 
+
+<button type="button" onClick={() => pagination(currentPage === 1 ? currentPage : currentPage - 1)} >
+                {"<"}
+            </button>
+<button type="button" onClick={() => pagination(currentPage === totalPage ? currentPage : currentPage + 1)} >
+                {">"}
+            </button>
+
+*/

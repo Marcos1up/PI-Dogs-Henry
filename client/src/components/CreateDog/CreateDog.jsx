@@ -229,6 +229,7 @@ export default function CreateDog() {
             )}
           </div>
           <div>
+
             <select
               className="createdog"
               onChange={(e) => handleSelect(e)}
@@ -251,6 +252,7 @@ export default function CreateDog() {
                   );
                 })}
             </select>
+
           </div>
           <div>
             {input.temperament.map((element) => (
