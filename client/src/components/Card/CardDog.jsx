@@ -9,6 +9,10 @@ export default function CardDog() {
   const dogs = useSelector((state) => state.dogs);
 
   const dispatch = useDispatch();
+  const dog404 =
+    "https://st2.depositphotos.com/1229718/8159/i/950/depositphotos_81597492-stock-photo-404-error.jpg";
+
+
 
   //const del paginado
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,10 +22,6 @@ export default function CardDog() {
   const IndesOfFirst = indexOfLast - dogsPerPage;
   const currentDogs = dogs.slice(IndesOfFirst, indexOfLast);
 
-  const dog404 =
-    "https://st2.depositphotos.com/1229718/8159/i/950/depositphotos_81597492-stock-photo-404-error.jpg";
-
-
   function paginate(pageNumber) {
     setCurrentPage(pageNumber)
   }
@@ -30,9 +30,6 @@ export default function CardDog() {
     dispatch(getAllDogs());
   }, [dispatch]);
 
-
-
-  console.log((IndesOfFirst, indexOfLast))
   return (
     <div>
       <Pagination

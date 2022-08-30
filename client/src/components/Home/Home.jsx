@@ -12,7 +12,7 @@ import {
 import CardDog from "../Card/CardDog";
 import Nav from "../NavBar/NavBar";
 import SearchBar from "../SearchBar/SearchBar";
-import style from './Home.module.css';
+//import style from './Home.module.css';
 
 export default function Home() {
   const dispatch = useDispatch();
