@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getDogByName } from "../../redux/actions";
 import style from "./search.module.css";
 
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
 
@@ -30,7 +30,7 @@ export default function SearchBar() {
           value={input}
           className={style.search}
         />
-        <button className={style.btn} type="submit" onClick={handleSubmit}>
+        <button className={style.btn} type="submit" onClick={(e) => { handleSubmit(e) }}>
           Search
         </button>
       </div>

@@ -9,6 +9,7 @@ import {
   FILTER_TEMPERAMENT,
   ORDER_BY_CREATION,
   CREATE_DOG,
+  RESET_DETAILS,
 } from "./actions";
 
 const initialState = {
@@ -40,6 +41,11 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         perritoId: payload,
+      };
+    case RESET_DETAILS:
+      return {
+        ...state,
+        perritoId: [],
       };
     case RELOAD:
       return {

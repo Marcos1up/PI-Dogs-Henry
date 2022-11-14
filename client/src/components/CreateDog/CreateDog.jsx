@@ -154,10 +154,17 @@ export default function CreateDog() {
   //==============================================================================
 
   function handleSelect(e) {
-    setInput({
-      ...input,
-      temperament: [...input.temperament, e.target.value],
-    });
+    if (!input.temperament.includes(e.target.value)) {
+      setInput({
+        ...input,
+        temperament: [...input.temperament, e.target.value],
+      });
+    } else {
+      setInput({
+        ...input,
+      })
+      alert("no se puede repetir paaaah")
+    }
   }
   function handleDelete(event) {
     setInput({

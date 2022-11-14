@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Manrope:wght@200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.fondo {
+  background-image: url(../../Assets/fondo.jpg);
+  background-size: cover;
+  background-size: 25rem;
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: relative;
+  height: 800px;
+}
+
+.title {
+  background-image: url(../../Assets/navbar.jpg);
+  /* opacity: 80%; */
+  color: black;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.filters {
+  background-color: rgb(191, 124, 73);
+  margin-top: 0px;
+  box-sizing: content-box;
+}
+
+.text {
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  position: relative;
+  left: -0.03%;
+  font-family: "Combo", cursive;
+  font-size: 21px;
+  position: absolute;
+  position: absolute;
+  top: 0%;
+  transform: translateY(170%);
+}

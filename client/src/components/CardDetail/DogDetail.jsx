@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogById } from "../../redux/actions";
 import Nav from "../NavBar/NavBar";
 import styles from "./CardDetail.module.css";
 
 import dog404 from "../../Assets/photo404Dogs.jpg";
+import { getDogById } from "../../redux/actions";
 
 export default function DogDetail(props) {
   const dogId = useSelector((state) => state.perritoId);

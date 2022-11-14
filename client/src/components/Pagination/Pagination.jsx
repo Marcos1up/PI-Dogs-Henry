@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Pagination({ dogsPerPage, dogs, paginate }) {
+export default function Pagination({ dogsPerPage, dogs, paginate, currentPage }) {
   const pageNumber = [];
 
   for (let i = 1; i <= Math.ceil(dogs / dogsPerPage); i++) {
@@ -20,6 +20,15 @@ export default function Pagination({ dogsPerPage, dogs, paginate }) {
     </nav>
   );
 }
+
+
+
+
+
+
+
+
+
 
 
 /* 

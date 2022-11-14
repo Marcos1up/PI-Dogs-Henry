@@ -12,8 +12,6 @@ export default function CardDog() {
   const dog404 =
     "https://st2.depositphotos.com/1229718/8159/i/950/depositphotos_81597492-stock-photo-404-error.jpg";
 
-
-
   //const del paginado
   const [currentPage, setCurrentPage] = useState(1);
   const dogsPerPage = 8;

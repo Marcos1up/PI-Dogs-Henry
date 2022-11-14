@@ -10,6 +10,7 @@ export const SET_ORDER_WEIGTH = "SET_ORDER_WEIGTH";
 export const FILTER_TEMPERAMENT = "FILTER_TEMPERAMENT";
 export const ORDER_BY_CREATION = "ORDER_BY_CREATION";
 export const CREATE_DOG = "CREATE_DOG";
+export const RESET_DETAILS = "RESET_DETAILS";
 
 export const getAllDogs = () => {
   return async (dispatch) => {
@@ -53,6 +54,15 @@ export function getDogByName(name) {
       alert("Dog not found");
     }
   };
+}
+
+export function resetDetails(){
+  return async function(dispatch) {
+    return dispatch({
+      type: RESET_DETAILS
+
+    })
+  }
 }
 
 export function getDogById(id) {
