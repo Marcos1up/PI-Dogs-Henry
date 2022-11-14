@@ -25,9 +25,14 @@ a idea general es crear una aplicación en la cual se puedan ver distintas razas
 - GET <https://api.thedogapi.com/v1/breeds>
 - GET <https://api.thedogapi.com/v1/breeds/search?q={raza_perro}>
 
-#### Tecnologías necesarias
+#### Tecnologías Front-end
 
 - [ ] React
 - [ ] Redux
+- [ ] Css puro
+
+#### Tecnologías Back-end
+
 - [ ] Express
+- [ ] JavaScript
 - [ ] Sequelize - Postgres
