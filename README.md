@@ -35,4 +35,8 @@ a idea general es crear una aplicación en la cual se puedan ver distintas razas
 
 - [ ] Express
 - [ ] JavaScript
+<<<<<<< HEAD
 - [ ] Sequelize - Postgres
+=======
+- [ ] Sequelize - Postgres
+>>>>>>> 7926dff2ab2cda51299cfe1a555a01df707f1eba
